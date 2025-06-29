@@ -14,28 +14,3 @@ Loops help you repeat actions in your code without rewriting the same line again
 for (let i = 0; i < 5; i++) {
   console.log(i);
 }
-## Conditions in JavaScript
-Conditions let you make decisions in your code depending on true/false logic.
-
-Key points:
-
-if → runs a block if condition is true
-
-else → runs a block if the if fails
-
-else if → test another condition
-
-switch → simpler for multiple choices
-
-## Arrays in JavaScript
-Arrays store multiple values in a single variable.
-
-Key points:
-
-Use square brackets [] to create arrays
-
-Store any data type (numbers, strings, objects, etc.)
-
-Use indexes to access items, starting from 0
-
-Have useful methods like push(), pop(), shift(), map(), and filter()
