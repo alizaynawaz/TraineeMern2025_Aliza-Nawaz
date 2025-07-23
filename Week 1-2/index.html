@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
+  <script src="js/lottie.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+
+  body {
+    background: #fff;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 60px;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+  }
+
+  .logo {
+    font-weight: 700;
+    font-size: 1.5em;
+    color: #4CAF50;
+  }
+
+  nav ul {
+    display: flex;
+    list-style: none;
+  }
+
+  nav ul li {
+    margin-left: 20px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+  }
+
+  .nav-extras {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .nav-extras button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .nav-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .search-bar {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 60px;
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .search-container select,
+  .search-container input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .search-container select {
+    min-width: 150px;
+  }
+
+  .search-container input[type="text"] {
+    flex: 1;
+  }
+
+  .search-container button {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px;
+    flex-wrap: wrap;
+  }
+
+  .hero-image-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-image: url('pictures/img/imgback.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  .girl-img {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color: #0d1b2a;
+  }
+
+  .hero-text span {
+    color: red;
+  }
+
+  .hero-text p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    color: #555;
+  }
+
+  .hero img {
+    width: 320px;
+    border-radius: 10px;
+  }
+
+  .section {
+    padding: 60px;
+  }
+
+  .products,
+  .testimonials,
+  .newsletter,
+  footer {
+    background-color: #f9f9f9;
+  }
+
+  .products-grid,
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .product,
+  .testimonial {
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+
+  .products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  .product {
+    text-align: center;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  .product img {
+    width: 120px;
+    height: auto;
+    background: transparent;
+    border-radius: 10px;
+  }
+
+  .deal-products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  .deal-product {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .deal-product img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .deal-product h4 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+
+  .deal-product p {
+    margin: 10px 0;
+    color: #666;
+  }
+
+  .deal-product button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .medical-products {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .medical-card {
+    width: 500px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  }
+
+  .medical-card .medical-text {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .medical-card p {
+    font-weight: bold;
+    color: orange;
+    margin-bottom: 8px;
+  }
+
+  .medical-card h4 {
+    font-size: 16px;
+    margin: 5px 0;
+  }
+
+  .medical-card button {
+    margin-top: 10px;
+    padding: 6px 12px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .medical-card.mask {
+    background-image: url('pictures/img/mask.png');
+  }
+
+  .medical-card.scissors {
+    background-image: url('pictures/img/Scisssor.png');
+  }
+
+  .triangle-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9;
+  }
+
+  .triangle-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .triangle {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 173.2px solid #a8fba4;
+  }
+
+  .triangle-text h2 {
+    font-size: 2em;
+    color: #0d1b2a;
+    text-align: left;
+  }
+
+  .triangle-footer {
+    margin-top: 30px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1em;
+  }
+
+  .testimonials-section {
+    background-color: #d3fce7;
+    text-align: center;
+    padding: 50px 20px;
+  }
+
+  .testimonials-section h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #1a1a1a;
+  }
+
+  .slider-wrapper {
+    overflow: hidden;
+    max-width: 100%;
+    position: relative;
+  }
+
+  .testimonial-cards {
+    display: flex;
+    transition: transform 0.4s ease-in-out;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+
+  .card p {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+  .card .author {
+    font-weight: bold;
+    font-size: 14px;
+    color: #111;
+  }
+
+  .card .author span {
+    font-weight: normal;
+    color: #555;
+  }
+
+  .arrows {
+    margin-top: 20px;
+  }
+
+  .arrows button {
+    font-size: 20px;
+    padding: 10px 15px;
+    margin: 0 5px;
+    background-color: #00df8f;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+  }
+
+  .signup-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    background: linear-gradient(to right, #cbf7d0, #f3f9ff, #c9f7d1);
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+
+  #lottie-signup {
+    width: 200px;
+    height: 200px;
+  }
+
+  .signup-text {
+    text-align: center;
+  }
+
+  .signup-text h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #0d1b2a;
+  }
+
+  .signup-text button {
+    padding: 12px 30px;
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  footer {
+    background-color: #002d3d;
+    color: white;
+    padding: 20px;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .brand-info {
+    flex: 1;
+  }
+
+  .socials img {
+    width: 25px;
+    margin-right: 10px;
+  }
+
+  .quick-links,
+  .locations {
+    flex: 1;
+  }
+
+  h1,
+  h2 {
+    font-weight: bold;
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .footer-lottie {
+    margin-top: 20px;
+    width: 120px;
+    height: 120px;
+  }
+
+  .quick-links a,
+  .locations a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .quick-links a:hover,
+  .locations a:hover {
+    text-decoration: underline;
+    color: #ffcc00;
+  }
+
+  .quick-links a:visited,
+  .locations a:visited {
+    color: white;
+  }
+
+  @media (max-width: 992px) {
+    header {
+      flex-direction: column;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav ul {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .nav-extras {
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+      justify-content: center;
+    }
+
+    .hero {
+      flex-direction: column;
+      padding: 30px 20px;
+      text-align: center;
+    }
+
+    .hero-text h1 {
+      font-size: 2.2em;
+    }
+
+    .hero-image-container {
+      width: 250px;
+      height: 250px;
+      margin-top: 20px;
+    }
+
+    .search-bar {
+      padding: 20px;
+    }
+
+    .search-container {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .deal-product {
+      flex-direction: column;
+      width: 100%;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .deal-product img {
+      width: 100px;
+    }
+
+    .products-grid {
+      justify-content: center;
+    }
+
+    .medical-products {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .medical-card {
+      width: 100%;
+      max-width: 90%;
+    }
+
+    .triangle-content {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .testimonial-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .slider-wrapper {
+      overflow: visible;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 320px;
+    }
+
+    .signup-section {
+      flex-direction: column;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+
+    .footer-content {
+      flex-direction: column;
+      gap: 30px;
+      text-align: center;
+    }
+
+    .footer-lottie img {
+      width: 180px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-text h1 {
+      font-size: 1.8em;
+    }
+
+    .hero-text p,
+    .hero-text button {
+      font-size: 0.95em;
+    }
+
+    .search-container select,
+    .search-container input,
+    .search-container button {
+      font-size: 0.9em;
+      padding: 10px;
+    }
+
+    .deal-product h4 {
+      font-size: 1em;
+    }
+
+    .medical-card .medical-text h4 {
+      font-size: 0.9em;
+    }
+
+    .signup-text h2 {
+      font-size: 1.3em;
+    }
+
+    .footer-content h2 {
+      font-size: 1.2em;
+    }
+  }
+
+ .deal-heading-inline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 60px;
+}
+
+.deal-heading-inline h2 {
+  margin: 0;
+  font-size: 1.6em;
+  color: #0d1b2a;
+  white-space: nowrap;
+}
+
+.inline-boxes {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.day-box-inline {
+  background-color: #52b74c;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85em;
+  font-weight: 600;
+  text-align: center;
+  min-width: 70px;
+  line-height: 1.3;
+}
+.author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.author img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.author-info {
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.author-info strong {
+  color: #222;
+}
+
+.author-info span {
+  font-size: 12px;
+  color: #777;
+}
+
+.search-bar {
+  background-color: #f0f7fa;
+  padding: 15px 60px;
+  border-bottom: 1px solid #ddd;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  width: 100%;
+  gap: 10px;
+}
+
+.category-select {
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 10px 16px;
+  font-size: 1em;
+  cursor: pointer;
+  background-color: white;
+}
+
+.search-group {
+  display: flex;
+  flex: 1;
+  border-radius: 30px;
+  overflow: hidden; /* makes the border-radius apply to both parts together */
+  border: 1px solid #ddd;
+}
+
+.search-group input[type="text"] {
+  flex: 1;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  outline: none;
+}
+
+.search-button {
+  background-color: #4CAF50;
+  border: none;
+  padding: 0 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button img {
+  width: 16px;
+  height: 16px;
+}
+
+/* default desktop style */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-toggle {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff;
+    position: absolute;
+    top: 70px; 
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  .nav-toggle {
+    display: block;
+  }
+  nav ul.active {
+    display: flex;
+  }
+}
+.nav-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* keep nav-icons aligned horizontally with hamburger */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.shop-btn {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* inside mobile menu, make ShopNow full width if needed */
+@media (max-width: 768px) {
+  #nav-menu li .shop-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* default large screen: show everything horizontally */
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 20px;
+}
+
+/* align the nav-icons (icons inside ul) horizontally on big screens */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* hide hamburger on big screens */
+.nav-toggle {
+  display: none;
+}
+
+/* small screens */
+@media (max-width: 768px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: white;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  nav ul.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .nav-icons {
+    display: flex;
+    gap: 10px;
+  }
+
+  /* put hamburger + icons horizontally */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* large screens */
+/* default large screen style */
+.desktop-nav {
+  display: block;
+}
+
+.mobile-nav,
+.mobile-menu {
+  display: none;
+}
+
+.desktop-nav ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* hamburger icon hidden on large screens */
+.nav-toggle {
+  display: none;
+}
+
+/* icons inside ul on desktop */
+.desktop-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* small screens */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mobile-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  .mobile-menu.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+
+
+</style>
+
+</head>
+<body>
+
+  <header>
+  <div class="logo">QuickPik</div>
+
+  <!-- desktop nav -->
+  <nav class="desktop-nav">
+    <ul>
+       <li>Home</li>
+      <li>About us</li>
+      <li>Products</li>
+      <li>Services</li>
+      <li>Contact us</li>
+      <li><button class="shop-btn">ShopNow</button></li>
+      <li class="desktop-icons">
+        <img src="pictures/img/Ellipse 8Girl2.png" alt="User Icon" class="nav-icon">
+        <img src="pictures/img/carts.png" alt="Cart Icon" class="nav-icon">
+      </li>
+    </ul>
+  </nav>
+
+  <!-- hamburger + icons for mobile -->
+  <div class="mobile-nav">
+    <div class="nav-toggle" id="nav-toggle">☰</div>
+    <img src="pictures/img/Ellipse 8Girl2.png" alt="User Icon" class="nav-icon">
+    <img src="pictures/img/carts.png" alt="Cart Icon" class="nav-icon">
+  </div>
+</header>
+
+<!-- mobile menu (hidden initially) -->
+<ul id="mobile-menu" class="mobile-menu">
+    <li>Home</li>
+      <li>About us</li>
+      <li>Products</li>
+      <li>Services</li>
+      <li>Contact us</li>
+  <li><button class="shop-btn">ShopNow</button></li>
+</ul>
+
+
+
+
+
+
+
+  <!-- Hero section -->
+
+<section class="hero">
+  <div class="hero-text">
+    <p style="color: green; font-weight: bold;">30% Off on groceries</p>
+    <h1>Shop smarter,<br> not harder. <br><span>Get it ordered.</span></h1>
+    <p>Save time, skip the lines. We’ve got you covered.</p>
+    <button style="padding:10px 20px; background:#4CAF50; color:white; border:none; border-radius:5px;">ShopNow</button>
+  </div>
+
+  <div class="hero-image-container">
+    <img src="pictures/img/girl.png" alt="Girl" class="girl-img">
+  </div>
+</section>
+
+
+  <!-- Trending Products -->
+  <section class="section products">
+    <h2 style="text-align:center">Trending Products</h2>
+    <div class="products-grid">
+      <div class="product"><img src="pictures/img/grossary.png" alt="Grocery"><p>Grocery</p></div>
+      <div class="product"><img src="pictures/img/shoes.png" alt="Shoes"><p>Shoes</p></div>
+      <div class="product"><img src="pictures/img/phones.png" alt="Phones"><p>Phones</p></div>
+      <div class="product"><img src="pictures/img/speaker.png" alt="Google Home"><p>Google Home</p></div>
+      <div class="product"><img src="pictures/img/clock.png" alt="Alarm Clocks"><p>Alarm Clocks</p></div>
+    </div>
+  </section>
+
+  <!-- Deal Of The Week & Medical Products -->
+  <section class="section">
+    <div class="deal-heading-inline" style="margin: 40px 0;">
+    <h2>Deal Of The Week</h2>
+    <div class="inline-boxes">
+      <div class="day-box-inline">10<br>Days</div>
+      <div class="day-box-inline">19<br>Hours</div>
+      <div class="day-box-inline">59<br>Minutes</div>
+      <div class="day-box-inline">57<br>Second</div>
+    </div>
+  </div>
+
+
+  <div class="deal-products">
+    <div class="deal-product">
+      <img src="pictures/img/perfume1.png" alt="Elegant Perfumes">
+      <div>
+        <h4>Elegant Perfumes - $16.00</h4>
+        <p>Long Lasting<br>Affordable price</p>
+        <button>Buy Now</button>
+      </div>
+    </div>
+    <div class="deal-product">
+      <img src="pictures/img/soap.png" alt="Strawberry Shampoo">
+      <div>
+        <h4>Strawberry Shampoo - $18.88</h4>
+        <p>Best Product<br>Affordable price</p>
+        <button>Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+
+  <h2 style="text-align:center; margin-top: 80px;">Medical Products</h2>
+   <div class="medical-products">
+  <div class="medical-card mask">
+    <div class="medical-text">
+      <p>From $2.50*</p>
+      <h4>Breathable Face Mask</h4>
+      <button>Shop now</button>
+    </div>
+  </div>
+  <div class="medical-card scissors">
+    <div class="medical-text">
+      <p>From $5.50*</p>
+      <h4>Medicine pack<br>Get it now 45% Off</h4>
+      <button>Shop now</button>
+    </div>
+  </div>
+</div>
+  </section>
+
+ <!-- Triangle Callout -->
+<section class="triangle-section">
+  <div class="triangle-content">
+    <div id="lottie-triangle" style="width: 120px; height: 120px;"></div>
+    <div class="triangle-text">
+      <h2>
+        Big city savings,<br>
+        delivered to your <span style="color:red">doorstep.</span>
+      </h2>
+    </div>
+  </div>
+  <p class="triangle-footer">Our Actions speaks louder than WORDS</p>
+</section>
+
+<section class="testimonials-section">
+  <h2>Unlock the secrets of satisfied customers.</h2>
+
+  <div class="slider-wrapper">
+    <div class="testimonial-cards" id="testimonialSlider">
+     <div class="card">
+      <p>“Never going back to waiting in lines! Shop smarter, get it delivered with QuickPik. It’s that simple.”</p>
+      <div class="author">
+        <img src="pictures/img/Ellipse 8Girl2.png" alt="Alisha Idris">
+        <div>
+          Alisha Idris<br><span>Manager @InTech</span>
+        </div>
+      </div>
+    </div>
+
+     <div class="card">
+  <p>“Never going back to waiting in lines! Shop smarter, get it delivered with QuickPik. It’s that simple.”</p>
+  <div class="author">
+    <img src="pictures/img/Severus.png" alt="Alisha Idris">
+    <div class="author-info">
+      <strong>Seruvus snape</strong><br>
+      <span>Manager @InTech</span>
+    </div>
+   </div>
+  </div>
+
+  <div class="card">
+  <p>“Never going back to waiting in lines! Shop smarter, get it delivered with QuickPik. It’s that simple.”</p>
+  <div class="author">
+    <img src="pictures/img/Severus.png" alt="Alisha Idris">
+    <div class="author-info">
+      <strong>Harry brige</strong><br>
+      <span>Manager @InTech</span>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <p>“Never going back to waiting in lines! Shop smarter, get it delivered with QuickPik. It’s that simple.”</p>
+  <div class="author">
+    <img src="pictures/img/albus_stella.png" alt="Alisha Idris">
+    <div class="author-info">
+      <strong>Alisha Idris</strong><br>
+      <span>Manager @InTech</span>
+    </div>
+  </div>
+</div>
+
+
+
+  <div class="arrows">
+    <button class="prev">←</button>
+    <button class="next">→</button>
+  </div>
+</section>
+
+
+  <section class="signup-section">
+    <div id="lottie-signup"></div>
+    <div class="signup-text">
+      <h2>SignUp For Exclusive Offers And Discounts</h2>
+      <button>Sign Up</button>
+    </div>
+  </section>
+
+
+
+
+<footer>
+  
+  <div class="footer-content">
+    <!-- Brand Info -->
+    <div class="brand-info">
+      <h2>QuickPik</h2>
+      <p>Shop smarter, not harder.<br>Get it delivered.</p>
+      <div class="socials">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="Twitter">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">
+        <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
+      </div>
+    </div>
+
+  
+   <!-- Quick Links -->
+<div class="quick-links">
+  <h2>Quick Links</h2>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+</div>
+
+
+    <!-- Locations -->
+<div class="locations">
+  <h2 style="color: white;">Locations</h2>
+  <ul>
+    <li><a href="https://www.google.com/maps?q=Mumbai" target="_blank">Mumbai</a></li>
+    <li><a href="https://www.google.com/maps?q=Pune" target="_blank">Pune</a></li>
+    <li><a href="https://www.google.com/maps?q=Nagpur" target="_blank">Nagpur</a></li>
+    <li><a href="https://www.google.com/maps?q=Bangalore" target="_blank">Bangalore</a></li>
+    <li><a href="https://www.google.com/maps?q=Goa" target="_blank">Goa</a></li>
+  </ul>
+</div>
+  <div id="footer-lottie">
+     <img src="animation/gift1.gif" alt="Gift" style="width: 300px;">
+   </div>
+
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© All Rights Reserved QuickPik</p>
+  </div>
+</footer>
+
+
+
+  <script>
+    lottie.loadAnimation({
+      container: document.getElementById('lottie-triangle'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'animation/triangle.json'
+    });
+
+    lottie.loadAnimation({
+      container: document.getElementById('lottie-signup'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets4.lottiefiles.com/packages/lf20_pprxh53t.json' 
+    });
+
+  </script>
+
+
+<script>
+  const slider = document.getElementById('testimonialSlider');
+  const nextBtn = document.querySelector('.next');
+  const prevBtn = document.querySelector('.prev');
+
+  let currentIndex = 0;
+
+  const cardWidth = 320; 
+
+  nextBtn.addEventListener('click', () => {
+    if (currentIndex < slider.children.length - 1) {
+      currentIndex++;
+      slider.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+    }
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (currentIndex > 0) {
+      currentIndex--;
+      slider.style.transform = `translateX(-${cardWidth * currentIndex}px)`;
+    }
+  });
+</script>
+
+<script>
+const navToggle = document.getElementById('nav-toggle');
+const mobileMenu = document.getElementById('mobile-menu');
+
+navToggle.addEventListener('click', function(e) {
+  e.stopPropagation(); // prevent bubbling
+  mobileMenu.classList.toggle('active');
+});
+
+// close menu if clicking outside
+document.addEventListener('click', function(e) {
+  // agar click mobile-menu ke andar nahi hai
+  // aur nav-toggle par bhi nahi hai
+  if (
+    !mobileMenu.contains(e.target) &&
+    !navToggle.contains(e.target)
+  ) {
+    mobileMenu.classList.remove('active');
+  }
+});
+
+
+</script>
+
+</body>
+</html>
